@@ -10,6 +10,15 @@
 // for the same location.
 
 // Top section 'header' will include the city name, date, and icon for the current weather conditions.
+$('#searchButton').on('click',function() {
+    locationInput($('').val())
+})
+
+function locationInput(entry) {
+    var lati;
+    var long;
+    var searchUrl;
+}
 
 // Top section will include current temperature, wind speed, humidity, UV index, and
 // a coloration around the index displaying which of three conditions it falls under.
