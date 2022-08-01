@@ -12,21 +12,46 @@
 // Top section 'header' will include the city name, date, and icon for the current weather conditions.
 $('#searchButton').on('click',function() {
     locationInput($('').val())
+    // set value to local storage
+    // 
 })
 
 function locationInput(entry) {
     var lati;
     var long;
-    var searchUrl;
+    // var searchUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=768e5ecb743a4297ff5e9f4b1974e4c3';
+// need to figure out code to make sure ${entry} is being read properly
+    fetch(searchUrl)
+    .then(response => response.json())
+    .then(data => {
+        lati = data[0].lat
+        long = data[0].lon
+        weatherForecast(lati,long)
+  })
 }
 
-// Top section will include current temperature, wind speed, humidity, UV index, and
-// a coloration around the index displaying which of three conditions it falls under.
+function weatherForecast(lat, lon) {
+    // var weatherData = 'openweatherapi'
+    fetch(weatherData)
+    .then(response => response.json())
+    .then(data => {
+        var today = $('#currentDay');
+        // city name
+        // date
+        // weather icon
+        // current temp
+        // humidity
+        // wind speed
+        // uv index
+        // uv index is colored based on conditions (favorable, moderate, or severe)
+        var future = $('#forecacst');
+        // create 5 cards. each card will display:
+        // date
+        // weather icon
+        // future average temp
+        // wind speed
+        // humidity
 
-// Bottom section will include five cards populated with the five day forecast
-
-// These cards will show the future dates, icons for forecast weather conditions, 
-// temperature, wind speed, and humidity.
-
-// Utilize openweather API to gather all of this information and display it properly.
+    })
+}
 
