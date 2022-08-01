@@ -19,7 +19,7 @@ $('#searchButton').on('click',function() {
 function locationInput(entry) {
     var lati;
     var long;
-    // var searchUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=768e5ecb743a4297ff5e9f4b1974e4c3';
+    // var searchUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=';
 // need to figure out code to make sure ${entry} is being read properly
     fetch(searchUrl)
     .then(response => response.json())
