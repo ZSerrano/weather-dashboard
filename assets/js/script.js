@@ -10,7 +10,7 @@
 // for the same location.
 
 // Top section 'header' will include the city name, date, and icon for the current weather conditions.
-$('#search').on('click',function() {
+$('#searchButton').on('click',function() {
     locationInput($('#inputCity').val())
     // set value to local storage
     // 
@@ -31,7 +31,8 @@ function locationInput(entry) {
 }
 
 function weatherForecast(lat, lon) {
-    var weatherData = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=768e5ecb743a4297ff5e9f4b1974e4c3`;
+    var apiKey = '768e5ecb743a4297ff5e9f4b1974e4c3'
+    var weatherData = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     fetch(weatherData)
     .then(response => response.json())
     .then(data => {
@@ -43,19 +44,33 @@ function weatherForecast(lat, lon) {
         var day = (date.getDate() < 10 ? '0' : '') + date.getDate();
         var month = (date.getMonth() < 9 ? '0' : '') + (date.getMonth() + 1);
         var year = date.getFullYear();
+        var currentDateDiv = $('<div>')
         var currentDate = month + '/' + day + '/' + year;
+        currentDateDiv.text(currentDate);
         // weather icon
+        var weatherIconDiv = $('<div>')
         var weatherIcon = data.current.weather.icon;
+        weatherIconDiv.append(weatherIcon)
         // current temp
         var currentTemp = data.current.temp;
+        var currentTempDiv = $('<div>')
+        currentTempDiv.text(currentTemp)
         // humidity
         var currentHumid = data.current.humidity;
+        var currentHumidDiv = $('<div>')
+        currentHumidDiv.text(currentHumid)
         // wind speed
         var windSpeed = data.current.wind_speed;
+        var windSpeedDiv = $('<div>')
+        windSpeedDiv.text(windSpeed)
         // uv index
         var uv = data.current.uvi;
+        var uvDiv = $('<div>')
+        uvDiv.text(uv)
         // uv index is colored based on conditions (favorable, moderate, or severe)
-        today.append(currentCity, currentDate, weatherIcon, currentTemp, currentHumid, windSpeed, uv);
+
+
+        today.append(currentCity, currentDateDiv, weatherIconDiv, currentTempDiv, currentHumidDiv, windSpeedDiv, uvDiv);
 
     })
     
