@@ -12,24 +12,24 @@ var apiKey = '768e5ecb743a4297ff5e9f4b1974e4c3'
 // Top section 'header' will include the city name, date, and icon for the current weather conditions.
 $('#searchButton').on('click',function() {
     locationInput($('#inputCity').val())
-    // set value to local storage
-    // 
+    
 })
 
+// Location function to pull latitue and longitude from geotracking api based on city name
 function locationInput(entry) {
     var lati;
     var long;
     var searchUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=${apiKey}`;
-// need to figure out code to make sure ${entry} is being read properly
     fetch(searchUrl)
     .then(response => response.json())
     .then(data => {
         lati = data[0].lat
         long = data[0].lon
+        // Runs forecast function passing in latitude and longitude variables
         weatherForecast(lati,long)
   })
 }
-
+// Forecast function runs based on latitude and longitude taken from geotracking api
 function weatherForecast(lat, lon) {
     
     var weatherData = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
@@ -70,7 +70,7 @@ function weatherForecast(lat, lon) {
         uvDiv.text(uv)
         // uv index is colored based on conditions (favorable, moderate, or severe)
 
-
+        // Appends all divs to the same container on the page
         today.append(currentCity, currentDateDiv, weatherIconDiv, currentTempDiv, currentHumidDiv, windSpeedDiv, uvDiv);
 
     })
