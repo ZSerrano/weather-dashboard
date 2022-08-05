@@ -19,7 +19,7 @@ $('#searchButton').on('click',function() {
 function locationInput(entry) {
     var lati;
     var long;
-    var searchUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=${apiKey}`;
+    var searchUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${entry}&limit=1&appid=${apiKey}`;
     fetch(searchUrl)
     .then(response => response.json())
     .then(data => {
