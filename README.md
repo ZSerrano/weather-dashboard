@@ -1,8 +1,10 @@
 # Module 6 Challenge
 
 ## Deployed Link
+https://zserrano.github.io/weather-dashboard/
 
 ## Screenshot of Deployed Website
+
 
 ## Description
 Created a functioning weather dashboard utilizing geotracking and openweather API calls to generate weather data in a specific location based on the latitude and longitude of the input city.  User can input a city name, and the internal functions display a number of current weather factors (temperature, humidity, UV index, etc.) in a separate container.
