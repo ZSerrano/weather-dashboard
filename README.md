@@ -18,8 +18,8 @@ Created a functioning weather dashboard utilizing geotracking and openweather AP
 - Within the weather function, created multiple variables to hold different parts of weather data and then appended them all to the same container on the page
 
 ## Contributors
-Zach Serrano (myself)
-Andrew Edwards - https://github.com/Andrew87E
+- Zach Serrano (myself)
+- Andrew Edwards - https://github.com/Andrew87E
 
 ## Technologies Used
 - Bootstrap
